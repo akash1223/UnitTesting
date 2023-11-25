@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lnr_lyt_assessment_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp24">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_dialog_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ibm_plex_sans_semi_bold"
+                    android:textColor="@color/blueWhale"
+                    android:textSize="@dimen/sp16"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Are you sure want to delete TestCollection collection?" />
+                <Button
+                    android:id="@+id/btn_cancel"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp16"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:onClick="@{()->fragment.cancelButtonClick()}"
+                    android:text="@string/cancel"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blueWhale"
+                    android:textSize="@dimen/sp14"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_proceed"
+                    app:layout_constraintTop_toTopOf="@+id/btn_proceed"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_proceed"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_proceed"
+                    style="@style/roundedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp24"
+                    android:onClick="@{()->fragment.sendDataButtonClick()}"
+                    android:text="@string/proceed"
+                    app:backgroundColor="@color/blueWhale"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/btn_cancel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_dialog_message"/>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
+

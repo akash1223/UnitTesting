@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@color/account_program_picker_background_color">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_shadow_layout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cxIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:background="@drawable/shape_cloud_type"
+                android:fontFamily="@font/ibm_plex_sans_semi_bold"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                android:paddingBottom="@dimen/dp1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp12"
+                tools:text="EX" />
+            <!--   <ImageView
+                   android:id="@+id/cxIV"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="15dp"
+                   android:layout_marginTop="12.5dp"
+                   android:layout_marginBottom="10dp"
+                   android:src="@drawable/cx"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/toolbar" />-->
+
+            <TextView
+                android:id="@+id/cxLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawablePadding="@dimen/dp15"
+                android:fontFamily="@font/ibm_plex_sans"
+                android:padding="@dimen/dp5"
+                android:textColor="@color/blueWhale"
+                android:textSize="16sp"
+                app:drawableRightCompat="@drawable/arrow_up"
+                tools:text="Foot Locker" />
+        </LinearLayout>
+        <!--  <ImageView
+              android:id="@+id/upArrowIV"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:paddingStart="12dp"
+              android:paddingEnd="10dp"
+              android:src="@drawable/arrow_up"
+              app:layout_constraintStart_toEndOf="@id/cxLabel"
+              app:layout_constraintTop_toTopOf="@+id/cxLabel"
+              app:layout_constraintBottom_toBottomOf="@+id/cxLabel"/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cxLabel">
+
+            <LinearLayout
+                android:id="@+id/accountSpinnerLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blueWhale"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/ibm_plex_sans"
+                    android:text="@string/select_account"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <com.inmoment.moments.home.helper.CustomSpinner
+                    android:id="@+id/accountSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/account_picker_spinner_bg"
+                    android:dropDownVerticalOffset="42dp"
+                    android:popupBackground="@drawable/border_circular_spinner_popup"
+                    android:popupElevation="5dp"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/select_program"
+                android:textColor="@color/edit_text_hint_color"
+                android:textSize="16sp" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/account_picker_spinner_bg_color" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/programsRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recyclerViewItemCL"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/alice_blue">
+
+    <TextView
+        android:id="@+id/cxIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:background="@drawable/shape_cloud_type"
+        android:fontFamily="@font/ibm_plex_sans_semi_bold"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp10"
+        android:paddingRight="@dimen/dp10"
+        android:paddingBottom="@dimen/dp1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp12"
+        app:layout_constraintBottom_toBottomOf="@+id/cxLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cxLabel"
+        tools:text="EX" />
+    <!--   <ImageView
+           android:id="@+id/cxIV"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="15dp"
+           android:layout_marginTop="12.5dp"
+           android:layout_marginBottom="10dp"
+           android:src="@drawable/cx"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/toolbar" />-->
+
+    <TextView
+        android:id="@+id/cxLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:drawableRight="@drawable/arrow_down"
+        android:drawablePadding="@dimen/dp15"
+        android:fontFamily="@font/ibm_plex_sans"
+        android:padding="@dimen/dp5"
+        android:textColor="@color/blueWhale"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/cxIV"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:text="Foot Locker" />
+
+    <TextView
+        android:id="@+id/allMomentsTV"
+        style="@style/HighlightedTextViewStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:paddingStart="20dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="10dp"
+        android:singleLine="true"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvNoOfDays"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cxLabel" />
+
+    <TextView
+        android:id="@+id/tvNoOfDays"
+        style="@style/smallTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/allMomentsTV"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/ibm_plex_sans"
+        android:gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/allMomentsTV"
+        app:layout_constraintTop_toBottomOf="@id/cxLabel" />
+</androidx.constraintlayout.widget.ConstraintLayout>

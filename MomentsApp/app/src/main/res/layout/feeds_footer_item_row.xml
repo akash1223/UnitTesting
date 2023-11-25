@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recyclerViewItemCL"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp48"
+    android:background="@color/white">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/loader"
+        android:layout_width="@dimen/dp100"
+        android:layout_height="@dimen/dp50"
+        android:layout_centerInParent="true"
+        android:background="@drawable/moments_loader" />
+
+</RelativeLayout>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0"
+    encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list>
+            <item>
+                <shape>
+                    <gradient android:angle="90"
+                        android:endColor="@color/blueWhale"
+                        android:startColor="@color/blueWhale"
+                        android:type="linear" />
+
+                    <stroke android:width="1dp"
+                        android:color="@color/account_picker_spinner_bg_color" />
+
+                    <corners android:radius="18dp" />
+
+                    <padding android:bottom="5dp"
+                        android:left="1dp"
+                        android:right="17dp"
+                        android:top="5dp"
+                        />
+                </shape>
+            </item>
+            <item>
+                <bitmap android:gravity="center|right"
+                    android:src="@drawable/single_arrow_up_24" />
+            </item>
+        </layer-list>
+    </item>
+</selector>

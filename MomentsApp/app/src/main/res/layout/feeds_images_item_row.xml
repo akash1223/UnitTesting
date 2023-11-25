@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="feed"
+            type="com.inmoment.moments.home.model.Feed" />
+
+        <variable
+            name="viewModel"
+            type="com.inmoment.moments.home.ui.HomeViewModel" />
+
+        <variable
+            name="homeAction"
+            type="com.inmoment.moments.home.ui.fragment.HomeUiAction" />
+
+        <variable
+            name="itemPosition"
+            type="int" />
+
+        <variable
+            name="savedView"
+            type="com.inmoment.moments.framework.datamodel.SavedViewsListResponseData" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/feedsCV"
+            style="@style/CardViewStyle"
+            app:strokeColor="@{feed.wasRead ? @color/vam_read:@color/vam_unread}"
+            app:strokeWidth="@dimen/dp1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+
+                    android:id="@+id/top_section"
+                    layout="@layout/layout_feeds_read_more_section"
+                    bind:feed="@{feed}"
+                    bind:homeAction="@{homeAction}"
+                    bind:itemPosition="@{itemPosition}"
+                    bind:viewModel="@{viewModel}" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="13dp"
+                        android:fitsSystemWindows="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </androidx.viewpager.widget.ViewPager>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabDots"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_below="@+id/viewPager"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewPager"
+                        app:tabBackground="@drawable/tab_selector"
+                        app:tabGravity="center"
+                        app:tabIndicatorHeight="0dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <include
+                    android:id="@+id/layout_bottom_section"
+                    layout="@layout/layout_feeds_bottom_section"
+                    bind:feed="@{feed}"
+                    bind:homeAction="@{homeAction}"
+                    bind:itemPosition="@{itemPosition}"
+                    bind:viewModel="@{viewModel}"
+                    bind:savedView="@{savedView}" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+</layout>

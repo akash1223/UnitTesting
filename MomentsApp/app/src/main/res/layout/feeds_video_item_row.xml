@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="feed"
+            type="com.inmoment.moments.home.model.Feed" />
+
+        <variable
+            name="viewModel"
+            type="com.inmoment.moments.home.ui.HomeViewModel" />
+
+        <variable
+            name="homeAction"
+            type="com.inmoment.moments.home.ui.fragment.HomeUiAction" />
+
+        <variable
+            name="itemPosition"
+            type="int" />
+
+        <variable
+            name="savedView"
+            type="com.inmoment.moments.framework.datamodel.SavedViewsListResponseData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/feedsCV"
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            app:strokeColor="@{feed.wasRead ? @color/vam_read:@color/vam_unread}"
+            app:strokeWidth="@dimen/dp1"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/top_section"
+                    layout="@layout/layout_feeds_read_more_section"
+                    bind:feed="@{feed}"
+                    bind:homeAction="@{homeAction}"
+                    bind:itemPosition="@{itemPosition}"
+                    bind:viewModel="@{viewModel}" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/feedsVV"
+                        style="@style/feedsFrameLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/videoPlayIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/imageView"
+                        android:src="@drawable/video_play"
+                        app:layout_constraintBottom_toBottomOf="@+id/feedsVV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/feedsVV" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <include
+                    android:id="@+id/layout_bottom_section"
+                    layout="@layout/layout_feeds_bottom_section"
+                    bind:feed="@{feed}"
+                    bind:homeAction="@{homeAction}"
+                    bind:itemPosition="@{itemPosition}"
+                    bind:viewModel="@{viewModel}"
+                    bind:savedView="@{savedView}" />
+                <!--  bind:feed="@{feed}"
+                  bind:homeAction="@{homeAction}"
+                  bind:itemPosition="@{itemPosition}"
+                  bind:viewModel="@{viewModel}" />-->
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </RelativeLayout>
+</layout>

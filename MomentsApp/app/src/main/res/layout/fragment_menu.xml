@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_shadow_layout" />
+
+    <!--<com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/dp32"
+        android:layout_marginRight="@dimen/dp32"
+        android:layout_height="wrap_content"
+        app:tabIndicatorHeight="@dimen/dp6"
+        android:background="@color/transparent"
+        app:tabSelectedTextColor="@color/blueWhale"
+        app:tabTextColor="@color/light_blueWhale"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.inmoment.moments.framework.ui.CustomTabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp32"
+            android:layout_marginRight="@dimen/dp32"
+            android:background="@color/transparent"
+            app:tabIndicatorHeight="@dimen/dp6" />
+
+        <View
+            android:id="@+id/toolbarLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/horizontalDivider" />
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

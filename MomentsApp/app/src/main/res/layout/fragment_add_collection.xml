@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.inmoment.moments.menu.collection.AddCollectionViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.inmoment.moments.menu.collection.ui.AddCollectionFragment" />
+    </data>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_shadow_layout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_save"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp30"
+                android:layout_marginRight="@dimen/dp16"
+                android:enabled="@{ viewModel.enableSaveButton ? false :true}"
+                android:fontFamily="@font/montserrat_medium"
+                android:onClick="@{()->fragment.createCollection()}"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textColor="@{ viewModel.enableSaveButton ?@color/blueWhale_disable:@color/colorPrimary}"
+                android:textSize="@dimen/sp14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_collection_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/dp15"
+                android:fontFamily="@font/ibm_plex_sans"
+                android:gravity="bottom"
+                android:text="@string/name_a_new_collection"
+                android:textColor="@color/blueWhale"
+                android:textSize="@dimen/sp16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edit_collection_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:backgroundTint="@color/blueWhale"
+                android:minEms="3"
+                android:padding="@dimen/sp16"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                android:text="@={viewModel.collectionName}"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_collection_msg">
+
+                <requestFocus />
+            </EditText>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

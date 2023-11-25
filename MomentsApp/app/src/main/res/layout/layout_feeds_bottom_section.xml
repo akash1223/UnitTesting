@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="feed"
+            type="com.inmoment.moments.home.model.Feed" />
+
+        <variable
+            name="viewModel"
+            type="com.inmoment.moments.home.ui.HomeViewModel" />
+
+        <variable
+            name="homeAction"
+            type="com.inmoment.moments.home.ui.fragment.HomeUiAction" />
+
+        <variable
+            name="itemPosition"
+            type="int" />
+
+        <variable
+            name="savedView"
+            type="com.inmoment.moments.framework.datamodel.SavedViewsListResponseData" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootClickEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/chkLike"
+            android:layout_width="@dimen/dp32"
+            android:layout_height="@dimen/dp32"
+            android:src="@{viewModel.favoriteList.contains(feed.experienceId) ? @drawable/collections_selected : @drawable/collections}"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@color/transparent"
+            android:visibility="@{savedView.enableCollection ? View.VISIBLE:View.INVISIBLE}"
+            android:layout_marginLeft="@dimen/dp10"
+            android:contentDescription="@string/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            style="@style/CommentsImageViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/imageView"
+            android:visibility="@{savedView.enableCase ? View.VISIBLE:View.INVISIBLE}"
+            app:layout_constraintStart_toEndOf="@+id/chkLike"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ivActivityLog"
+            android:layout_width="@dimen/dp24"
+            android:layout_height="@dimen/dp24"
+            android:layout_marginTop="@dimen/dp12"
+            android:background="@drawable/circle_account_log_count"
+            android:clickable="true"
+            android:contentDescription="@string/imageView"
+            android:focusable="true"
+            android:gravity="center"
+            android:text='@{feed.activityLogCount+""}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp10"
+            android:visibility="@{feed.activityLogCount>0 ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="123" />
+
+        <ImageView
+            android:id="@+id/ivShare"
+            style="@style/ShareImageViewStyle"
+            android:layout_width="wrap_content"
+            android:visibility="@{savedView.enableShare ? View.VISIBLE:View.INVISIBLE}"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivRewards"
+            style="@style/RewardsImageViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{savedView.enableReward ? View.VISIBLE:View.INVISIBLE}"
+            android:contentDescription="@string/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/ivShare"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/activity_root_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{feed.activityLogClick? View.VISIBLE: View.GONE}"
+            app:layout_constraintTop_toBottomOf="@+id/chkLike">
+
+            <TextView
+                android:id="@+id/activityCountTV"
+                style="@style/ActivityCountTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp16"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/activityCountTV"
+                app:visibilityShimmerAnimation="@{feed}">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/shimmer_placeholder_layout_activity_log" />
+
+                    <include
+                        layout="@layout/shimmer_placeholder_layout_activity_log"
+                        android:visibility="@{feed.activityLogCount>2 ? View.INVISIBLE : View.GONE}" />
+
+                    <include
+                        layout="@layout/shimmer_placeholder_layout_activity_log"
+                        android:visibility="@{feed.activityLogCount>4 ? View.INVISIBLE : View.GONE}" />
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/activityRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{feed.loadingEffect? View.GONE: View.VISIBLE}"
+                app:layout_constraintTop_toBottomOf="@+id/activityCountTV" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

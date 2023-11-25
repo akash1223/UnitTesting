@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="item"
+            type="com.inmoment.moments.home.model.ActivityLogModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/userInitialsRL"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/background_activity_log_user_initials"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/userInitialsTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/ibm_plex_sans_semi_bold"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="AR" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/activityIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/imageView"
+            android:paddingStart="1dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/userInitialsRL"
+            app:layout_constraintEnd_toEndOf="@+id/userInitialsRL"
+            app:layout_constraintStart_toEndOf="@+id/userInitialsRL"
+            app:layout_constraintTop_toBottomOf="@+id/userInitialsRL"
+            tools:src="@drawable/favorite_blue" />
+
+        <TextView
+            android:id="@+id/activityTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/ibm_plex_sans"
+            android:textColor="@color/activity_text_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userInitialsRL"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Shared this moment" />
+
+        <TextView
+            android:id="@+id/activityTimeTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/ibm_plex_sans"
+            android:textColor="@color/grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/userInitialsRL"
+            app:layout_constraintTop_toBottomOf="@+id/activityTV"
+            tools:text="6m" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

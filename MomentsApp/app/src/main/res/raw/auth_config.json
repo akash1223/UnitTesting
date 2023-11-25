@@ -1,0 +1,11 @@
+{
+  "client_id": "49c4a057-bb10-44dd-8723-e03977a97a5d",
+  "redirect_uri": "com.inmoment.moments:/oauth2redirect/gluu",
+  "authorization_scope": "openid email profile",
+  "discovery_uri": "https://identity.demo.inmoment.com/.well-known/openid-configuration",
+  "authorization_endpoint_uri": "https://identity.demo.inmoment.com/oxauth/restv1/authorize",
+  "token_endpoint_uri": "https://identity.demo.inmoment.com/oxauth/restv1/token",
+  "registration_endpoint_uri": "https://identity.demo.inmoment.com/oxauth/restv1/register",
+  "user_info_endpoint_uri": "https://identity.demo.inmoment.com/oxauth/restv1/userinfo",
+  "https_required": true
+}
