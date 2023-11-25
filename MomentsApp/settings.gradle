@@ -1,3 +1,0 @@
-include ':appauth'
-include ':app'
-rootProject.name = "MomentsApp"
