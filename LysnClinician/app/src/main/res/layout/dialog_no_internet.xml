@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp16"
+        android:lineSpacingExtra="@dimen/sp8"
+        android:text="@string/no_internet_title"
+        android:textColor="@color/darkFontColor"
+        android:textSize="@dimen/sp20"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp16"
+        android:lineSpacingExtra="@dimen/sp9"
+        android:text="@string/no_internet"
+        android:textColor="@color/darkFontColor"
+        android:textSize="@dimen/sp17" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_dismiss_dialog"
+        style="@style/roundedButton"
+        android:text="@string/alert_positive_button_OK_text" />
+</LinearLayout>

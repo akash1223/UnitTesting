@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="mViewModel"
+            type="com.lysn.clinician.ui.video_session.VideoSessionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/video_view_back"
+        android:layout_height="match_parent">
+
+
+        <com.twilio.video.VideoView
+            android:id="@+id/primaryVideoView"
+            app:tviMirror="false"
+            android:layout_width="match_parent"
+            android:visibility="@{mViewModel.isParticipantVideoOn? View.VISIBLE:View.GONE}"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            tools:visibility="visible"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/videoActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:paddingBottom="@dimen/dp16"
+            android:layout_marginLeft="@dimen/dp8"
+            android:layout_marginRight="@dimen/dp8"
+            android:layout_marginBottom="@dimen/dp16"
+            android:paddingTop="@dimen/dp24"
+            >
+
+            <LinearLayout
+                android:id="@+id/constraint_video_off"
+                android:layout_width="match_parent"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:visibility="@{mViewModel.isParticipantVideoOn? View.GONE:View.VISIBLE}"
+                android:orientation="vertical"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/imgViewVideo"
+                >
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_view_participant"
+                    android:layout_width="@dimen/dp75"
+                    android:layout_height="@dimen/dp75"
+                    android:src="@drawable/ic_video_user"
+                    app:loadImage="@{mViewModel.consultationDetail.Client.photo100x100}"
+
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_participant_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text='@{mViewModel.consultationDetail.Client.firstName+" "+mViewModel.consultationDetail.client.lastName}'
+                    android:theme="@style/IBMPLEX.MEDIUM.17sp"
+                    tools:text="Delora Alm" />
+
+            </LinearLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_view_user"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="@{mViewModel.isLocalVideoOff? View.GONE:View.VISIBLE}"
+                app:loadImage="@{mViewModel.consultationDetail.therapist.photo100x100}"
+                android:src="@drawable/ic_video_user"
+                app:layout_constraintBottom_toBottomOf="@+id/thumbnailVideoView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintHeight_percent="0.15"
+                app:layoutPercentWidth="@{mViewModel.circularIconPercent}"
+                android:layout_marginRight="@dimen/dp8"
+                tools:visibility="visible"
+                />
+            <com.twilio.video.VideoView
+                android:id="@+id/thumbnailVideoView"
+                app:tviOverlaySurface="true"
+                app:tviMirror="true"
+                android:visibility="@{mViewModel.isLocalVideoOff.booleanValue()? View.VISIBLE:View.GONE}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="2:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.22"
+                android:layout_marginRight="@dimen/dp8"
+                app:layoutPercentWidth="@{mViewModel.thumbnailVideoViewHeight}"
+                app:layout_constraintBottom_toTopOf="@+id/imgViewAudio"
+                tools:visibility="invisible"/>
+
+            <ProgressBar
+                android:id="@+id/reconnectingProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="gone" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgViewVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->mViewModel.onBtnLocalVideoOffClickListener()}"
+                android:src="@{mViewModel.isLocalVideoOff? @drawable/ic_video_call:@drawable/ic_video_call_disable}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imgViewAudio"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@drawable/ic_video_call"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgViewAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp24"
+                android:onClick="@{()->mViewModel.onBtnLocalAudioMuteClickListener()}"
+                android:src="@{mViewModel.isLocalAudioMute? @drawable/ic_audio_call:@drawable/ic_audio_call_disable}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/imgViewVideo"
+                tools:src="@drawable/ic_audio_call"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgSpeaker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->mViewModel.onBtnSpeakerClickListener()}"
+                android:src="@{mViewModel.isSpeakerIcon? @drawable/ic_speaker:@drawable/ic_speaker_off}"
+                app:layout_constraintBottom_toBottomOf="@+id/imgCloseSession"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imgSetting"
+                app:layout_constraintTop_toTopOf="@+id/imgCloseSession" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_setting"
+                app:layout_constraintBottom_toBottomOf="@+id/imgCloseSession"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgCloseSession" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgExpand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_expand"
+                android:onClick="@{()->mViewModel.onBtnBottomSectionExpandClickListener()}"
+                app:layout_constraintBottom_toBottomOf="@+id/imgViewAudio"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgCloseSession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cross"
+                android:onClick="@{()->mViewModel.onBtnExitClickListener()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

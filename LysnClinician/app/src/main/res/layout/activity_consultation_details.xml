@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="statusColor"
+            type="com.lysn.clinician.utility.ConsultationStatusCode" />
+
+        <variable
+            name="viewModel"
+            type="com.lysn.clinician.ui.consultation_details.ConsultationDetailsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_shadow_layout" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_layout">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_client_name"
+                style="@style/IBMPLEX.MEDIUM.15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginTop="@dimen/dp38"
+                android:layout_marginBottom="@dimen/dp8"
+                android:drawableStart="@drawable/ic_user"
+                android:drawablePadding="@dimen/dp16"
+                android:gravity="center"
+                android:text='@{viewModel.consultationDetail.client.firstName +" "+viewModel.consultationDetail.client.lastName}'
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Client name" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/txt_view_profile"
+                style="@style/viewProfileTextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp26"
+                android:layout_marginEnd="@dimen/dp16"
+                android:text="@string/view_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_duration"
+                style="@style/IBMPLEX.15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginTop="@dimen/dp38"
+                android:drawablePadding="@dimen/dp16"
+                android:gravity="center"
+                android:text='@{String.valueOf(viewModel.consultationDetail.durationMinutes)+" "+viewModel.callType}'
+                app:bindCallType="@{viewModel.consultationDetail.type}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_client_name"
+                tools:text="30 minute video consultation" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_date"
+                style="@style/IBMPLEX.15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginTop="@dimen/dp38"
+                android:drawableStart="@drawable/ic_calendar"
+                android:drawablePadding="@dimen/dp16"
+                android:gravity="center"
+                android:text="@{viewModel.date}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_duration"
+                tools:text="Sunday 12Jul,1:30pm 2:00pm" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_start_time"
+                style="@style/IBMPLEX.MEDIUM.12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:drawablePadding="@dimen/dp16"
+                android:drawableTint="@color/white"
+                android:gravity="top"
+                android:text="@{viewModel.consultationDetail.timerDisplayName}"
+                android:textAllCaps="true"
+                android:textColor="@{statusColor.getColorRes(viewModel.consultationDetail.timerStatus)}"
+                app:bindCallType="@{viewModel.consultationDetail.type}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_date" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_join_consultation"
+                style="@style/roundedButton"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginTop="@dimen/dp38"
+                android:layout_marginEnd="@dimen/dp16"
+                android:text="@string/join_consultation"
+                app:backgroundColor="@{viewModel.consultationDetail.canJoin?@color/submitButtonEnableColor : @color/submitButtonDisableColor }"
+                android:enabled="@{viewModel.consultationDetail.canJoin? true : false}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_start_time" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_cancel_consultation"
+                style="@style/IBMPLEX.MEDIUM.17sp"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:clickable="@{viewModel.consultationDetail.canCancel? true:false}"
+                android:gravity="center"
+                android:onClick="@{()-> viewModel.onCancelConsultationClickListener()}"
+                android:padding="@dimen/dp14"
+                android:text="@string/cancel_consultation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_join_consultation" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_cancellation_policy"
+                style="@style/IBMPLEX.15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp20"
+                android:paddingRight="@dimen/dp8"
+                android:text="@string/cancellation_policy_text"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/divider"
+
+                />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="1dp"
+                android:layout_height="15dp"
+                android:background="@color/darkFontColor"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_cancellation_policy"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_cancellation_policy" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_reschedule_consultation"
+                style="@style/IBMPLEX.15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp20"
+                android:paddingLeft="@dimen/dp8"
+                android:text="@string/reschedule_consultation_text"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/divider" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textview.MaterialTextView
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txt_client_info_item"
+    style="@style/IBMPLEX.15sp"
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    android:gravity="center|left"
+    android:textColorLink="@color/darkFontColor"
+    android:drawablePadding="@dimen/dp16"
+    android:text="@string/consultation_ready_to_join"
+    tools:text="12 Dunbar Ln, Sydney, NSW 10022"
+    tools:drawableLeft="@drawable/ic_phone_client_info"
+    />

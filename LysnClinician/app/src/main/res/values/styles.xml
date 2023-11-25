@@ -1,0 +1,421 @@
+<resources>
+
+    <!--region Base application theme -->
+    <!-- <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        &lt;!&ndash; Customize your theme here. &ndash;&gt;
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="fullScreen" parent="@style/Theme.MaterialComponents.DayNight">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>-->
+
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="snackbarStyle">@style/Widget.App.Snackbar</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="fullScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="snackbarStyle">@style/Widget.App.Snackbar</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="videoFullScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="snackbarStyle">@style/Widget.App.Snackbar</item>
+    </style>
+    <style name="Theme.App.Dialog.FullScreen" parent="Theme.MaterialComponents.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+    </style>
+    <!--endregion-->
+
+    <style name="Widget.App.Snackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="backgroundTint">@color/password_toggle_dark</item>
+        <item name="android:layout_margin">24dp</item>
+        <item name="android:layout_marginBottom">@dimen/dp48</item>
+        <item name="snackbarTextViewStyle">@style/snackbar_text</item>
+        <item name="android:topRightRadius">@dimen/dp20</item>
+    </style>
+
+    <style name="snackbar_text" parent="@style/Widget.MaterialComponents.Snackbar.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_medium</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="android:paddingBottom">@dimen/dp16</item>
+        <item name="android:paddingTop">@dimen/dp16</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+    </style>
+
+    <style name="roundCornerEditText" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:textColorHint">@color/darkFontColor</item>
+        <item name="hintTextColor">@color/darkFontColor</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+        <item name="errorTextColor">@color/errorRed</item>
+        <item name="errorIconDrawable">@drawable/icon_edit_input_error</item>
+        <item name="errorIconTint">@color/errorRed</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_text</item>
+    </style>
+
+    <style name="textHeading" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp24</item>
+        <item name="lineHeight">32sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <style name="textSubHeading" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans</item>
+    </style>
+
+    <style name="textLinkButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp15</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans</item>
+    </style>
+
+
+    <style name="actionIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:tint">@color/actionIconColor</item>
+    </style>
+
+    <style name="toolbarText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <style name="MyRounded.MaterialComponents.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.App.CustomDialog.Rounded
+        </item>
+    </style>
+
+    <!-- <style name="ShapeAppearanceOverlay.App.CustomDialog.Rounded" parent="Theme.AppCompat.DayNight">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>-->
+
+    <style name="ShapeAppearanceOverlay.App.CustomDialog.Rounded" parent="Theme.AppCompat.Light">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="roundedButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp60</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="cornerRadius">@dimen/dp24</item>
+        <item name="lineHeight">20sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="backgroundColor">@color/submitButtonEnableColor</item>
+        <item name="android:textColor">@color/submitButtonEnableTextColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <style name="roundCornerTextButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp60</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="textAllCaps">false</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="cornerRadius">@dimen/dp24</item>
+        <item name="strokeWidth">@dimen/dp2</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <style name="textError" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/errorRed</item>
+    </style>
+
+    <style name="termsAndConditionText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp15</item>
+        <item name="lineHeight">@dimen/sp20</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans</item>
+    </style>
+
+    <style name="termsAndConditionTextHeading" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp20</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+    </style>
+
+    <!--region Consultation List -->
+
+    <style name="readyToJoinTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <style name="consultationCardTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <!--endregion-->
+
+    <style name="textCancelConsultation" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:textColor">@color/errorRed</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/ibmplex_sans</item>
+    </style>
+
+    <style name="tabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/darkFontColor</item>
+    </style>
+
+
+    <style name="IBMPLEX.MEDIUM.12sp" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp12</item>
+        <item name="lineHeight">@dimen/sp18</item>
+        <item name="android:lineSpacingExtra">@dimen/sp6</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_medium</item>
+    </style>
+
+    <style name="IBMPLEX.15sp" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp15</item>
+        <item name="lineHeight">@dimen/sp20</item>
+        <item name="android:lineSpacingExtra">@dimen/sp8</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans</item>
+    </style>
+
+    <style name="IBMPLEX.MEDIUM.15sp" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp15</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:lineSpacingExtra">@dimen/sp9</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_medium</item>
+    </style>
+
+    <style name="IBMPLEX.17sp" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:lineSpacingExtra">@dimen/sp9</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans</item>
+    </style>
+
+    <style name="IBMPLEX.MEDIUM.17sp" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:lineSpacingExtra">@dimen/sp9</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_medium</item>
+    </style>
+
+    <style name="IBMPLEX.SEMI.BOLD.16sp" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">@dimen/sp4</item>
+        <item name="android:textColor">@color/color_end_consultation</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <style name="IBMPLEX.SEMI.BOLD.17sp" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:lineSpacingExtra">@dimen/sp9</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <style name="IBMPLEX.SEMI.BOLD.20sp" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp20</item>
+        <item name="lineHeight">28sp</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+    </style>
+
+    <!--region Material dialog theme -->
+
+
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text
+        </item>
+        <item name="buttonBarPositiveButtonStyle">@style/ThemeOverlay.App.Positive.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/ThemeOverlay.App.Negative.Button</item>
+        <item name="buttonBarNeutralButtonStyle">@style/ThemeOverlay.App.Neutral.Button</item>
+        <item name="android:dialogMessage">@style/MaterialAlertDialog.App.Message.Text</item>>
+
+    </style>
+
+    <style name="MaterialAlertDialog.App.Message.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/dialog_message</item>
+        <item name="android:textSize">@dimen/sp15</item>
+        <item name="android:fontFamily">@font/ibmplex_sans</item>
+        <item name="android:lineSpacingExtra">@dimen/sp5</item>
+
+
+    </style>
+
+    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:textSize">@dimen/sp17</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_medium</item>
+
+    </style>
+
+    <style name="ThemeOverlay.App.Positive.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/errorRed</item>
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+        <item name="android:textAllCaps">false</item>
+
+    </style>
+
+    <style name="ThemeOverlay.App.Negative.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+        <item name="android:textAllCaps">false</item>
+
+    </style>
+
+    <style name="ThemeOverlay.App.Neutral.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="android:textColor">@color/darkFontColor</item>
+        <item name="android:fontFamily">@font/ibmplex_sans_semi_bold</item>
+        <item name="android:textAllCaps">false</item>
+
+    </style>
+
+    <style name="MaterialAlertDialog.App" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <!--endregion  -->
+
+    <style name="viewProfileTextButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp14</item>
+        <item name="textAllCaps">false</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:lineSpacingExtra">15sp</item>
+        <item name="cornerRadius">@dimen/dp20</item>
+
+        <item name="strokeWidth">@dimen/dp2</item>
+
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/ibmplex_sans</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

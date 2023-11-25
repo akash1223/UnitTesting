@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_consultation_list">
+
+    <fragment
+        android:id="@+id/navigation_consultation_list"
+        android:name="com.lysn.clinician.ui.consultation_list.ConsultationListFragment"
+        android:label="@string/consultation_list_label"
+        tools:layout="@layout/fragment_consultation_list" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.lysn.clinician.ui.profile.ProfileFragment"
+        android:label="@string/you_text"
+        tools:layout="@layout/fragment_profile" />
+
+
+</navigation>

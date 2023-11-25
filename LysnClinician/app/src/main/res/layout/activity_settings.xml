@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.lysn.clinician.ui.profile.SettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_shadow_layout" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_notifications"
+            style="@style/IBMPLEX.SEMI.BOLD.17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp16"
+            android:paddingTop="@dimen/dp16"
+            android:text="@string/notifications_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_email_notification"
+            style="@style/IBMPLEX.15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:button="@null"
+            android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+            android:drawableTint="@color/colorPrimary"
+            android:paddingEnd="@dimen/dp16"
+            android:paddingTop="@dimen/dp16"
+            android:text="@string/receive_email_notification"
+            app:buttonTint="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_notifications" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_sms_notification"
+            style="@style/IBMPLEX.15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:button="@null"
+            android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+            android:drawableTint="@color/colorPrimary"
+            android:paddingEnd="@dimen/dp16"
+
+            android:text="@string/receive_sms_notification"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox_email_notification" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_account_support"
+            style="@style/IBMPLEX.SEMI.BOLD.17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:paddingStart="@dimen/dp16"
+            android:text="@string/account_support_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkbox_sms_notification" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_account_description"
+            style="@style/IBMPLEX.15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp16"
+
+            android:text="@string/account_description_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_account_support" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:layout_margin="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@color/horizontalDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_account_description" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/label_timezone"
+            style="@style/IBMPLEX.SEMI.BOLD.17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp16"
+            android:paddingTop="@dimen/dp16"
+            android:text="@string/timezone_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_timezone"
+            style="@style/IBMPLEX.15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp16"
+            android:paddingTop="@dimen/dp16"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_timezone"
+            tools:text="ASIA" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            style="@style/roundedButton"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="@dimen/dp16"
+            android:onClick="@{()-> viewModel.onSaveSettingsOnClickListener()}"
+            android:text="@string/save_text"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_timezone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

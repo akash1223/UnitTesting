@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.signin.SignInFragment">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.lysn.clinician.ui.signin.SignInViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp16"
+        >
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_heading"
+            style="@style/textHeading"
+            android:layout_marginBottom="@dimen/dp8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/please_sign_in" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_email_address"
+            style="@style/roundCornerEditText"
+            android:layout_marginTop="@dimen/dp16"
+            android:hint="@string/email_address"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:errorMsg="@{viewModel.emailErrorMsg}"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:text="@={viewModel.emailField}"
+                android:textSize="@dimen/sp17" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_password"
+            style="@style/roundCornerEditText"
+            android:layout_marginTop="@dimen/dp4"
+            android:hint="@string/password"
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/input_email_address"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:endIconMode="password_toggle"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:text="@={viewModel.passwordField}"
+                android:textSize="@dimen/sp17" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_sign_in"
+            android:text="@string/sign_in"
+            style="@style/roundedButton"
+            app:backgroundColor="@{(TextUtils.isEmpty(viewModel.emailField)||TextUtils.isEmpty(viewModel.passwordField))?@color/submitButtonDisableColor :@color/submitButtonEnableColor}"
+            android:enabled="@{TextUtils.isEmpty(viewModel.emailField)||TextUtils.isEmpty(viewModel.passwordField)? false :true}"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp4"
+            android:onClick="@{()->viewModel.onBtnSignInClickListener()}"
+            app:layout_constraintTop_toBottomOf="@+id/input_password" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_error_message"
+            style="@style/textError"
+            android:gravity="center"
+            android:visibility="@{TextUtils.isEmpty(viewModel.errorMessageLiveData)? View.GONE:View.VISIBLE }"
+            android:text="@={viewModel.errorMessageLiveData}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/txt_forgot_password"
+            app:layout_constraintTop_toBottomOf="@+id/btn_sign_in"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible"
+            tools:text="Network Error"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/txt_forgot_password"
+            style="@style/textLinkButton"
+            android:gravity="center"
+            android:onClick="@{()->viewModel.onForgotPasswordClickListener()}"
+            android:text="@string/forgot_your_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_error_message"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</layout>
