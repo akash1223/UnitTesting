@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="item"
+            type="com.example.lysnclient.model.AssessmentType" />
+
+        <variable
+            name="viewModel"
+            type="com.example.lysnclient.viewmodel.ListOfAssessmentViewModel" />
+
+        <variable
+            name="itemPosition"
+            type="int" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp16"
+            android:padding="@dimen/dp16"
+            app:cardCornerRadius="@dimen/dp5"
+            app:cardElevation="@dimen/dp2">
+
+            <LinearLayout
+                android:id="@+id/lnr_lyt_assessment_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:onClick="@{()->viewModel.onAssessmentItemClick(itemPosition)}"
+                android:orientation="vertical"
+                android:padding="@dimen/dp16">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_wbt_interpretation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp4"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/ibmplex_sans_fonts_medium"
+                    android:lineSpacingExtra="9sp"
+                    android:maxLines="1"
+                    android:text="@{item.name}"
+                    android:textColor="@color/darkFontColor"
+                    android:textSize="@dimen/sp17"
+                    tools:text="@string/dummy" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/code"
+                    style="@style/subHeading"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/ibmplex_sans_fonts_text"
+                    android:lineSpacingExtra="5sp"
+                    android:maxLines="1"
+                    android:text="@{item.code}"
+                    android:textColor="@color/greyFontColor" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_last_taken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp12"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/ibmplex_sans_fonts_medium"
+                    android:lineSpacingExtra="6sp"
+                    android:maxLines="1"
+                    android:textColor="@color/blueTextColor"
+                    android:textSize="@dimen/sp12"
+                    android:visibility="@{TextUtils.isEmpty(item.lastTakenDate)? View.GONE:View.VISIBLE}"
+                    app:text="@{item.lastTakenDate}"
+                    app:textAllCaps="true" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

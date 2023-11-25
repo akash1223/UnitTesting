@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userDashboard"
+            type="com.example.lysnclient.model.DashboardUser" />
+
+        <variable
+            name="viewModel"
+            type="com.example.lysnclient.viewmodel.HomeDashboardViewModel" />
+
+        <variable
+            name="itemPosition"
+            type="int" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:clickable="true"
+        android:onClick="@{()->viewModel.onAssessmentItemClick(itemPosition)}">
+
+        <RelativeLayout
+            android:id="@+id/layout_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:paddingTop="@dimen/dp24"
+            android:paddingBottom="@dimen/dp24">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/dp44"
+                android:layout_height="@dimen/dp44"
+                android:background="@drawable/ic_icon_placeholder"
+                android:contentDescription="@string/content_placeholder_icon" />
+
+
+            <LinearLayout
+                android:id="@+id/lnr_lyt_user_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_toEndOf="@id/imageView"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_user_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/ibmplex_sans_fonts_medium"
+                    android:lineSpacingExtra="@dimen/sp9"
+                    android:text="@{userDashboard.title}"
+                    android:textColor="@color/darkFontColor"
+                    android:textSize="@dimen/sp17" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_user_sub_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/ibmplex_sans_fonts_text"
+                    android:lineSpacingExtra="@dimen/sp5"
+                    android:text="@{userDashboard.subTitle}"
+                    android:textColor="@color/greyFontColor"
+                    android:textSize="@dimen/sp15" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.3dp"
+            android:layout_below="@+id/layout_parent"
+            android:background="@color/greyFontColor" />
+    </RelativeLayout>
+</layout>

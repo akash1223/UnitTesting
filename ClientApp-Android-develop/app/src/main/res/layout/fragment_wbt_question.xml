@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.fragment.WBTQuestionFragment">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.lysnclient.viewmodel.WBTQuestionsViewModel" />
+
+        <variable
+            name="quePosition"
+            type="int" />
+
+        <variable
+            name="answerMap"
+            type="java.util.TreeMap&lt;Integer,com.example.lysnclient.model.WBTSelectedAnswer&gt;" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:background="@color/transparent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/content_desc_background_image"
+            android:scaleType="fitXY"
+            app:imgSrc="@{answerMap[quePosition].backgroundImgId}"
+            tools:src="@mipmap/very_happy" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp96"
+            android:paddingTop="@dimen/dp24"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/wbt_question_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_wbt_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp40"
+                    android:layout_marginEnd="@dimen/dp40"
+                    android:fontFamily="@font/ibmplex_sans_fonts_semibold"
+                    android:gravity="center_horizontal"
+                    android:lineHeight="@dimen/sp32"
+                    android:lineSpacingExtra="@dimen/sp8"
+                    android:text="@{viewModel.MWBTQuestionList[quePosition].question}"
+                    android:textColor="@color/wbtTextColor"
+                    android:textSize="@dimen/sp24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:targetApi="p" />
+
+                <ImageView
+                    android:id="@+id/img_face_tracker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="36dp"
+                    android:contentDescription="@string/content_desc_mood_image"
+                    android:src="@drawable/ic_face_type_very_happy"
+                    app:imgSrc="@{answerMap[quePosition].faceTypeImgId}"
+                    app:layout_constraintBottom_toTopOf="@+id/btnDownloadPdf"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_wbt_question" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDownloadPdf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp60"
+                    android:layout_above="@+id/txt_instruction"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dp16"
+                    android:fontFamily="@font/ibmplex_sans_fonts_semibold"
+                    android:gravity="center"
+                    android:onClick="@{()->viewModel.onBtnNextClick()}"
+                    android:text="@{answerMap[quePosition].answerLabel}"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/sp16"
+                    android:visibility="@{TextUtils.isEmpty(answerMap[quePosition].answerLabel)? View.GONE :View.VISIBLE}"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="@dimen/dp24"
+                    app:icon="@drawable/ic_forward_arrow"
+                    app:iconGravity="textEnd"
+                    app:iconTint="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_instruction"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_instruction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/dp24"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="@dimen/sp6"
+                    android:text="@string/seek_bar_instruction"
+                    android:textColor="@color/wbtTextColor"
+                    android:textSize="@dimen/sp12"
+                    app:layout_constraintBottom_toTopOf="@+id/seek_bar_progress_tracker"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/seek_bar_progress_tracker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="46dp"
+                    android:max="100"
+                    android:min="0"
+                    android:paddingStart="@dimen/dp16"
+                    android:paddingEnd="@dimen/dp16"
+                    android:progress="@{answerMap[quePosition].mWBTSeekBarValue}"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:splitTrack="false"
+                    android:thumb="@drawable/ic_seekbar_slider"
+                    android:thumbOffset="@dimen/dp0"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</layout>

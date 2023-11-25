@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.WizardScreenActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="myAdapter"
+            type="com.example.lysnclient.adapters.ViewsSliderAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.example.lysnclient.viewmodel.WizardScreenViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/authScreenBackground"
+            android:padding="@dimen/dp16">
+
+            <ImageView
+                android:id="@+id/imageView_lysn"
+                style="@style/wizardLogo"
+                android:contentDescription="@string/company_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/into_tab_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_lysn" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/into_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp4"
+                app:layout_constraintBottom_toTopOf="@+id/btn_verify_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tabBackground="@drawable/tab_pager_selector"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_verify_email"
+                style="@style/submitButton"
+                android:layout_marginBottom="@dimen/dp16"
+                android:onClick="@{()->viewModel.onBtnContinueEmailClickListener()}"
+                android:text="@string/continue_with_email"
+                app:layout_constraintBottom_toTopOf="@+id/txt_wizard_footer"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_wizard_footer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp16"
+                android:fontFamily="@font/ibmplex_sans_fonts_text"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="@dimen/sp5"
+                android:paddingStart="@dimen/dp16"
+                android:paddingEnd="@dimen/dp16"
+                android:text="@string/wizard_bottom_string"
+                android:textColor="@color/darkFontColor"
+                android:textSize="@dimen/sp12"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lysnclient">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".MainApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".view.BaseActivity" />
+        <activity
+            android:name=".view.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/fullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.WizardScreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.UserAuthenticateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.TermsAndConditionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.AssessmentDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.ListOfAssessmentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.AssessmentQuestionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.ReviewAssessmentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.AssessmentSubmittedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.WBTIntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.WBTLearnMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.WBTQuestionsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarWithTransparentStatusBar" />
+        <activity
+            android:name=".view.WBTOutputScreenActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

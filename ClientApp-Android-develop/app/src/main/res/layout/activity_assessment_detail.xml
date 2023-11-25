@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.lysnclient.view.AssessmentDetailActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.text.Html" />
+
+        <variable
+            name="viewModel"
+            type="com.example.lysnclient.viewmodel.AssessmentDetailViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/assessmentBackground">
+
+        <ScrollView
+            android:id="@+id/ass_detail_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/assessmentBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp150"
+                    android:contentDescription="@string/assessment_logo"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/assessment_logo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp16">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_assessment_title"
+                        style="@style/textViewHeading"
+                        android:layout_marginTop="@dimen/dp8"
+                        android:layout_marginBottom="@dimen/dp6"
+                        android:text="@{viewModel.assessmentTitleField}" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_assessment_slug"
+                        style="@style/dass21_subHeading"
+                        android:layout_marginBottom="@dimen/dp24"
+                        android:text="@{viewModel.assessmentCodeField}" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_assessment_data"
+                        style="@style/subHeading"
+                        android:text="@{Html.fromHtml(viewModel.assessmentIntroField)}" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_assessment_estimated_time"
+                        style="@style/subHeading"
+                        android:layout_marginTop="@dimen/dp16"
+                        android:text="@{@string/estimate_time_to_complete(viewModel.assessmentEstimatedTimeField)}"
+                        android:textColor="@color/assessmentEstimationFontColor"
+                        android:visibility="@{TextUtils.isEmpty(viewModel.assessmentEstimatedTimeField.toString())? View.GONE:View.VISIBLE}" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp24"
+                        android:layout_marginBottom="@dimen/dp24"
+                        app:cardCornerRadius="@dimen/dp5"
+                        app:cardElevation="@dimen/dp2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/assessmentPrivacyBackground"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp16"
+                            android:paddingTop="@dimen/dp14"
+                            android:paddingRight="@dimen/dp16"
+                            android:paddingBottom="@dimen/dp20">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp">
+
+                                <ImageView
+                                    android:id="@+id/ic_icon_lock_button"
+                                    style="@style/actionIcon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:contentDescription="@string/assessment_and_your_privacy"
+                                    android:src="@drawable/ic_icons_material_lock" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    style="@style/subHeading"
+                                    android:layout_marginStart="@dimen/dp4"
+                                    android:layout_toEndOf="@id/ic_icon_lock_button"
+                                    android:text="@string/assessment_and_your_privacy" />
+
+                            </RelativeLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/subHeading"
+                                android:layout_marginBottom="@dimen/dp4"
+                                android:text="@string/assessment_privacy_detail"
+                                android:textColor="@color/assessmentPrivacyTextColor" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_begin_assessment"
+                    style="@style/submitButton"
+                    android:layout_marginLeft="@dimen/dp16"
+                    android:layout_marginRight="@dimen/dp16"
+                    android:layout_marginBottom="@dimen/dp24"
+                    android:onClick="@{()->viewModel.onBtnBeginAssessmentClick()}"
+                    android:text="@string/begin_assessment_btn_text" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/img_back_navigation"
+            style="@style/actionIcon"
+            android:layout_width="@dimen/dp48"
+            android:layout_height="@dimen/dp48"
+            android:layout_margin="@dimen/dp24"
+            android:background="@drawable/back_close_button_circle"
+            android:contentDescription="@string/navigate_previous_screen"
+            android:elevation="@dimen/dp4"
+            android:onClick="@{()->viewModel.navigateBack()}"
+            android:padding="@dimen/dp12"
+            android:src="@drawable/ic_icon_back_button" />
+    </FrameLayout>
+</layout>

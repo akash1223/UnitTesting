@@ -1,0 +1,265 @@
+<resources>
+    <string name="app_name">Lysn</string>
+    <string name="alert_dialog_title">Alert Dialog Title</string>
+    <string name="alert_dialog_message">Alert Dialog Message..!!</string>
+    <string name="alert_positive_button_text">Yes</string>
+    <string name="alert_negative_button_text">No</string>
+    <string name="alert_positive_button_OK_text">OK</string>
+    <string name="company_logo">company Logo</string>
+
+    <!--    User authenticate Activity-->
+    <!--    tags-->
+    <string name="emailVerify">EmailVerify</string>
+    <string name="createPassword">CreatePassword</string>
+    <string name="addPhoneNumber">addPhoneNumber</string>
+    <string name="otpVerification">otpVerification</string>
+    <string name="login">Login</string>
+
+    <!--    validation messages-->
+    <string name="invalid_email_msg">Please enter your email address in the format: welysn@gmail.com</string>
+    <string name="invalid_create_password_msg">Please enter a minimum of 10 characters with a combination of letters in upper and lower case, digits and special characters.</string>
+    <string name="phone_number_must_be_10_digit">Please enter a valid phone number.</string>
+    <string name="invalid_otp">Please enter a valid 6-digit code.</string>
+    <string name="login_again_token_expired">Sorry Please login again</string>
+
+    <!--    hint and error-->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="phone">Phone</string>
+    <string name="continues">Continue</string>
+    <string name="otp">Code</string>
+    <string name="ok">OK</string>
+    <!--  label  text messages-->
+    <string name="what_is_your_email_address">What’s your email address?</string>
+    <string name="email_require_info">We need to look up your existing account or to help you create a new one</string>
+    <string name="agree_for_privacy_policy_msg">By continuing you agree to Lysn’s Terms of Service and Privacy Policy.</string>
+    <string name="create_a_password">Create a password</string>
+    <string name="create_a_new_password_msg">Create a new password (minimum of 8 characters for your Lysn profile).</string>
+    <string name="what_is_your_phone_number">What is your phone number?</string>
+    <string name="we_ll_send_a_one_time_code_to_verify_your_account">We’ll send a one time code to verify your account.</string>
+    <string name="enter_the_code">Enter the code</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="no_internet_title">We couldn’t connect</string>
+    <string name="no_internet_message">Please make sure you’re connected to the internet and then retry</string>
+    <string name="no_internet_connection">The network connection is lost.</string>
+
+    <string name="we_sent_a_6_digit_code_to_61_00000000">We sent a 6 digit code to %1$s %2$s</string>
+    <string name="log_in_with_your_password">Log in with your password"</string>
+    <string name="using_email_to_login">Using %1$s to log in"</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="forgot_password">Forgot your password</string>
+    <string name="otp_resent_successfully">OTP has been resent to the above phone number.</string>
+
+    <!--    Accessibility messages-->
+    <string name="close_icon">Close screen</string>
+    <string name="navigate_previous_screen">Navigate to previous screen</string>
+
+    <!--    General message-->
+    <string name="no_internet">Internet connection not available</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="invalid_username_or_password">Your email address and/or password does not match. </string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    User authenticate Activity-->
+    <string name="review">Review</string>
+    <string name="accept_terms">Accept terms</string>
+    <string name="review_terms_and_conditions">Review Terms &amp; Conditions</string>
+    <string name="terms_and_conditions_heading">Terms &amp; Conditions</string>
+    <string name="terms_Condition_text">These Terms of Use govern your use of the welysn.com website (‘the Website’) which is owned and operated by Lysn Pty Ltd (ACN 614 950 131) (‘we’, ‘us’, ‘our’, ‘Lysn’). By accessing and using the Website or by clicking ‘I Accept’ when signing up for a user account on the Website, you agree to be bound by, and responsible for complying with, these Terms of Use.
+
+
+
+
+            We may change these Terms of Use from time to time. Your use of the Website following any such change to the Terms of Use will confirm your acceptance of these changes.
+
+
+
+
+            Nature of Service
+
+            The service offered by Lysn is not an acute service. In cases of emergency, please contact public emergency services immediately by dialling “000” by telephone. We are not responsible for any loss, damage, cost, expense, action, claim, demand, proceeding, injury or liability suffered by any person as a result of a failure by that person or any other person to contact public emergency services.
+
+
+
+
+            If you are thinking about suicide, if you are considering taking actions that may cause harm to you or to others, if you feel that you or any other person may be in any danger, or if you have any medical emergency, you must immediately “000” and notify the relevant authorities. You can also contact Lifeline 24 hours a day on 13 11 14 or alternatively obtain resources from Lifeline on www.lifeline.org.au
+
+
+
+
+            states the reason for your concern/s; and
+
+            clearly identifies the content by providing:
+
+            a description of it; and
+
+            a hyperlink to the specific page (if applicable).
+
+            20. Confidentiality
+
+            If you receive or encounter any information which a reasonable person would consider to be confidential in nature, you agree to contact us immediately at support@welysn.com.
+
+
+
+
+            21. Applicable Law
+
+            The Website is controlled from our offices in New South Wales. These Terms and Use will be governed by and construed in accordance with the laws of New South Wales.
+
+
+
+
+            You irrevocably and unconditionally submit to the exclusive jurisdiction of the courts of New South Wales.
+
+
+
+
+            If any provision of these Terms of Use is found to be invalid or unenforceable by a court of law, such invalidity or unenforceability will not affect the remainder of these Terms of Use which will continue in full force and effect.
+
+
+
+
+            22. Contact
+
+            If you have any questions or concerns regarding these Terms of Use please contact us at support@welysn.com
+</string>
+
+    <!--Wizard screen Activity-->
+    <string name="continue_with_email">Continue with email</string>
+    <string name="wizard_bottom_string">If you are in crisis, suicidal or need immediate assistance please call 000, or your local emergency mental health service.</string>
+    <string name="wizard_research_validated_tools">Research validated tools</string>
+    <string name="wizard_research_validated_tools_sub_text">Designed to help your mental health and \n wellbeing; created by mental health professionals.</string>
+    <string name="wizard_safe_and_secure">Safe and Secure</string>
+    <string name="wizard_safe_and_secure_sub_text">Stigma free help at your fingertips, without the \n need to worry about your privacy \n (and your data).</string>
+    <string name="wizard_therapy_made_easy">Therapy made easy</string>
+    <string name="wizard_therapy_made_easy_sub_text">Learn skills to be the best version \n of yourself.</string>
+    <string name="wizard_welcome_to_lysn">Welcome to Lysn</string>
+    <string name="wizard_welcome_to_lysn_sub_text">Find a professional and access online tools \n to help improve your mental health. \n</string>
+    <string name="email_already_in_used">Email already in use</string>
+    <string name="welcome_to_lysn">Welcome \n to \n Lysn</string>
+
+    <!--    List of assessment activity-->
+    <string name="title_assessment">Assessments</string>
+    <string name="lock">lock</string>
+    <string name="lysn_assessments_title">Lysn Assessments</string>
+    <string name="lysn_assessment_desc">Lysn uses self-reported assessments to help clients better understand aspects of their mental health and wellbeing.</string>
+    <string name="clinical_assessments_text">Clinical Assessments</string>
+    <string name="dummy">dummy</string>
+    <string name="server_not_reachable">We’re sorry!  Unable to proceed, please try again later.</string>
+    <string name="content_close_icon">Close current screen</string>
+
+    <!--Open Assessment Detail Activity-->
+    <string name="estimeted_time_to_complete">Estimated time to complete</string>
+    <string name="assessment_and_your_privacy">Assessment &amp; Your Privacy</string>
+    <string name="assessment_privacy_detail">No one will see your assessment results except your Lysn healthcare professional, unless you have provided permission.</string>
+    <string name="begin_assessment_btn_text">Begin Assessment</string>
+    <string name="assessment_logo">Assessment Logo</string>
+    <string name="estimate_time_to_complete">Estimated time to complete : %1$s"</string>
+    <string name="no_assessment_available">Assessment not available</string>
+    <string name="no_assessment_que_available">Assessment question not available</string>
+
+    <!--Open Assessment Questions Activity-->
+    <string name="back_title">Back</string>
+    <string name="assessment">Assessment</string>
+
+    <!--Review Assessment Activity-->
+    <string name="review_assessment_heading">Please take a moment to review your answers</string>
+    <string name="review_assessment_title">Assessment Title:</string>
+    <string name="accept_review_assessment_text">I accept Lysn providing my results to the Lysn healthcare professional that I’m next booked with.</string>
+    <string name="review_submit_assessment_text">Submit Assessment</string>
+    <string name="edit_answer">Edit answer</string>
+
+    <string name="exit_assessment_title">Exit Assessment</string>
+    <string name="exit_assessment_message">If you exit this assessment, your answers will not be saved.</string>
+    <string name="exit_title">Exit</string>
+    <string name="cancel_title">Cancel</string>
+    <string name="ok_title">OK</string>
+    <string name="logout">Log Out</string>
+    <string name="logout_subtitle">Logout user</string>
+    <string name="confirm_title">Confirm</string>
+    <string name="logout_title">Are you sure you want to logout?</string>
+
+    <string name="assessment_submission">Assessment Submission</string>
+    <string name="Assessment_successfully_submitted">Assessment Successfully Submitted</string>
+
+    <!--   DashBoard activity and fragment-->
+    <string name="home_menu_item">Home</string>
+    <string name="search_menu_item">Search</string>
+    <string name="learn_menu_item">Learn</string>
+    <string name="user_menu_item">User</string>
+    <string name="assListFragment">AssessmentListFragment</string>
+    <string name="dashboard_placeholder_screen">Dashboard Placeholder Screen</string>
+    <string name="coming_soon">Coming soon. </string>
+    <string name="session_expired">Session Expired</string>
+    <string name="session_expired_msg">Please log in again.</string>
+
+    <string name="content_help_icon">Help</string>
+    <string name="content_setting_icon">Setting</string>
+    <string name="you">You</string>
+    <string name="placeholder_text">You Placeholder Screen</string>
+    <string name="content_placeholder_icon">Placeholder Icon</string>
+
+    <!--Static placeholder for now User Dashboard Activity-->
+    <string name="user_consultations_title">Consultations</string>
+    <string name="user_consultations_sub_title">Manage your consultations</string>
+    <string name="user_message_title">Messages</string>
+    <string name="user_message_sub_title">New message</string>
+    <string name="user_wellbeing_tracker_title">Wellbeing Tracker</string>
+    <string name="user_wellbeing_tracker_sub_title">Update and review</string>
+    <string name="user_Assessments_title">Assessments</string>
+    <string name="user_Assessments_sub_title">Browse clinical assessments</string>
+    <string name="user_logout_title">Log Out</string>
+    <string name="user_logout_sub_title">Logout User</string>
+
+    <!--Find a Psychologist Activity-->
+    <string name="assessment_submitted_title">Assessment Submitted</string>
+    <string name="assessment_submitted_sub_title">Discuss the results during your next consultation. If you don’t currently have a consultation booked click the button below to find a psychologist.</string>
+    <string name="find_a_psychologist_title">Find a Psychologist</string>
+    <string name="find_a_psychologist_sub_title">Lysn can match you with licensed therapists.</string>
+    <string name="find_a_psychologist_button_text">Find a Psychologist</string>
+    <string name="back_button_title">Return to home</string>
+    <string name="profile_picture_title">Profile Picture</string>
+
+
+    <!--Wellbeing Tracker Activity-->
+    <string name="wellbeing_tracker_toolbar_title">Wellbeing Tracker</string>
+    <string name="wellbeing_tracker_heading">How are you today?</string>
+    <string name="wellbeing_tracker_sub_sub_heading">Welcome! Take 20 seconds to check-in on how you\'re tracking today! This tool is designed to increase mindfulness and self-awareness.</string>
+    <string name="wellbeing_tracker_learn_more"><u>Learn more</u></string>
+    <string name="wellbeing_tracker_btn_text">Start Wellbeing Tracker</string>
+    <string name="wellbeing_tracker_continue_home">Continue to home</string>
+    <string name="learn_more_coming_soon">Well-being Tracker (Learn more)</string>
+
+    <!--WBT Question Activity-->
+    <string name="title_wellbeing_tracker">Well-being Tracker</string>
+    <string name="seek_bar_instruction">Move the bar below to \n tell us how you feel</string>
+    <string name="wbt_current_que_number">%1$s / %2$d"</string>
+    <string name="content_desc_background_image">Background Image</string>
+    <string name="content_desc_mood_image">Mood Image</string>
+    <string name="exit_wbt_title">Exit Well-being Tracker</string>
+    <string name="exit_wbt_message"> If you exit this well-being tracker, your answers will not be saved.</string>
+    <string name="wbt_questions_not_available">Well-being questions are unavailable.</string>
+    <string name="not_have_privilege_message">You do not have the required privileges to submit the well-being tracker.</string>
+    <string name="interpretations_not_found_message">Well-being insights are unavailable.</string>
+    <string name="navigate_back_message">If you go back, your answers will not be saved.</string>
+
+    <!--Wbt Output Screen Activity-->
+    <string name="wbt_output_screen_title">Thanks for sharing!</string>
+    <string name="wbt_find_right_psychologist_title">Lysn can help you find \n the right Psychologist</string>
+    <string name="wbt_output_screen_button_title">Find a Psychologist now</string>
+    <string name="wbt_interpretation_data_not_available">Interpretation data not available</string>
+    <string name="previous_title">Previous</string>
+    <string name="next_title">Next</string>
+
+    <!--Wbt learn more activity-->
+    <string name="wbt_learn_more_title">About Lysn Wellbeing</string>
+    <string name="wbt_learn_more_data">Research shows that taking the time to stop and check-in with yourself is a powerful and important life skill. It has many mental, physical, emotional and spiritual benefits. Checking-in is an act of mindfulness that increases self-awareness. \n\n
+
+When you take the time to ask yourself important questions about aspects of your life, you gain a better understanding of your current emotions, strengths, weaknesses, resilience and driving factors. \n\n
+
+With this gained self-awareness, you become empowered with insight about what parts of your life are keeping you strong and what areas you need to take action for positive change.\n\n
+
+Scientists have also discovered that the simple act of practising mindfulness helps improve your overall health and wellbeing. Mindfulness can help improve mental health, relieve the physical impact of stress, treat heart disease, lower blood pressure, reduce chronic pain, improve sleep, and alleviate gastrointestinal difficulties.</string>
+    <string name="wbt_learn_more_button_title">Start Wellbeing Tracker</string>
+</resources>
