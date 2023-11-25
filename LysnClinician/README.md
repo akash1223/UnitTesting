@@ -1,1 +1,0 @@
-# ClinicianApp-Android
